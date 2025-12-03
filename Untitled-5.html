@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard - Madhu Enterprises</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo-area">
+                <div class="logo">
+                    <i class="fas fa-industry"></i>
+                    <h1>Madhu <span>Enterprises</span></h1>
+                </div>
+                <p class="tagline">Industrial Supplies & Hardware Solutions</p>
+            </div>
+            
+            <div class="header-actions">
+                <div class="user-profile">
+                    <div class="profile-dropdown">
+                        <div class="profile-info">
+                            <i class="fas fa-user-circle"></i>
+                            <div>
+                                <strong id="userName">Guest User</strong>
+                                <span>Customer Dashboard</span>
+                            </div>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="profile-menu">
+                            <a href="#"><i class="fas fa-user"></i> My Profile</a>
+                            <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                            <div class="divider"></div>
+                            <a href="index.html" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="dashboard-nav">
+        <div class="container">
+            <ul class="dashboard-menu">
+                <li><a href="dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="#orders"><i class="fas fa-shopping-bag"></i> My Orders</a></li>
+                <li><a href="#invoices"><i class="fas fa-file-invoice"></i> Invoices</a></li>
+                <li><a href="#enquiries"><i class="fas fa-question-circle"></i> My Enquiries</a></li>
+                <li><a href="#addresses"><i class="fas fa-address-book"></i> Address Book</a></li>
+                <li><a href="#profile"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="index.html" class="back-to-store"><i class="fas fa-store"></i> Back to Store</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <section class="dashboard-content">
+        <div class="container">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <div class="welcome-text">
+                    <h2>Welcome back, <span id="customerName">Customer</span>!</h2>
+                    <p>Here's what's happening with your orders and account today.</p>
+                </div>
+                <div class="welcome-actions">
+                    <a href="products.html" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> New Order
+                    </a>
+                    <a href="index.html#inquiry" class="btn btn-secondary">
+                        <i class="fas fa-question-circle"></i> New Enquiry
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Stats Cards -->
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalOrdersCount">0</h3>
+                        <p>Total Orders</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="pendingOrdersCount">0</h3>
+                        <p>Pending Orders</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalSpent">₹0.00</h3>
+                        <p>Total Spent</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="activeEnquiries">0</h3>
+                        <p>Active Enquiries</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Orders -->
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-history"></i> Recent Orders</h3>
+                    <a href="#orders" class="view-all">View All</a>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="dashboard-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Date</th>
+                                <th>Items</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentOrdersTable">
+                            <!-- Recent orders will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="empty-state" id="noOrders">
+                    <i class="fas fa-shopping-bag"></i>
+                    <h4>No orders yet</h4>
+                    <p>You haven't placed any orders. Start shopping now!</p>
+                    <a href="products.html" class="btn btn-primary">Browse Products</a>
+                </div>
+            </div>
+            
+            <!-- Recent Invoices -->
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-file-invoice"></i> Recent Invoices</h3>
+                    <a href="#invoices" class="view-all">View All</a>
+                </div>
+                
+                <div class="invoices-grid" id="recentInvoices">
+                    <!-- Recent invoices will be loaded here -->
+                </div>
+                
+                <div class="empty-state" id="noInvoices">
+                    <i class="fas fa-file-invoice"></i>
+                    <h4>No invoices yet</h4>
+                    <p>Your invoices will appear here after placing orders.</p>
+                </div>
+            </div>
+            
+            <!-- Recent Enquiries -->
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-question-circle"></i> Recent Enquiries</h3>
+                    <a href="#enquiries" class="view-all">View All</a>
+                </div>
+                
+                <div class="enquiries-list" id="recentEnquiries">
+                    <!-- Recent enquiries will be loaded here -->
+                </div>
+                
+                <div class="empty-state" id="noEnquiries">
+                    <i class="fas fa-question-circle"></i>
+                    <h4>No enquiries yet</h4>
+                    <p>Submit your first enquiry to get started.</p>
+                    <a href="index.html#inquiry" class="btn btn-secondary">Submit Enquiry</a>
+                </div>
+            </div>
+            
+            <!-- Quick Actions -->
+            <div class="dashboard-section">
+                <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+                <div class="quick-actions">
+                    <a href="products.html" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h4>Place New Order</h4>
+                        <p>Browse products and place order</p>
+                    </a>
+                    
+                    <a href="index.html#inquiry" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h4>Submit Enquiry</h4>
+                        <p>Ask about products or bulk orders</p>
+                    </a>
+                    
+                    <a href="#addresses" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-address-book"></i>
+                        </div>
+                        <h4>Manage Addresses</h4>
+                        <p>Update shipping addresses</p>
+                    </a>
+                    
+                    <a href="#profile" class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-user-cog"></i>
+                        </div>
+                        <h4>Update Profile</h4>
+                        <p>Change account information</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="support-info">
+                    <h4><i class="fas fa-headset"></i> Need Help?</h4>
+                    <p>Call us: +91 98765 43210</p>
+                    <p>Email: support@madhuenterprises.com</p>
+                    <p>Hours: Mon-Sat, 9AM-7PM</p>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Return Policy</a>
+                    <a href="#">Shipping Policy</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Madhu Enterprises. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Details Modal -->
+    <div class="modal" id="orderDetailsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-shopping-bag"></i> Order Details</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="order-details-content" id="orderDetailsContent">
+                    <!-- Order details will be loaded here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="printOrder">Print</button>
+                <button class="btn btn-primary" id="downloadOrderInvoice">Download Invoice</button>
+                <button class="btn btn-warning" id="cancelOrderBtn">Cancel Order</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

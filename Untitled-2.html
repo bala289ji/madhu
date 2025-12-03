@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Madhu Enterprises</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (Same as index.html) -->
+    <header>
+        <div class="container">
+            <div class="logo-area">
+                <div class="logo">
+                    <i class="fas fa-industry"></i>
+                    <h1>Madhu <span>Enterprises</span></h1>
+                </div>
+                <p class="tagline">Industrial Supplies & Hardware Solutions</p>
+            </div>
+            
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="Search products..." id="searchInput">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="user-actions">
+                    <a href="dashboard.html" class="user-icon" title="Dashboard">
+                        <i class="fas fa-user"></i>
+                        <span class="badge" id="userBadge">0</span>
+                    </a>
+                    <a href="cart.html" class="cart-icon" title="Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" id="cartCount">0</span>
+                    </a>
+                    <a href="index.html#inquiry" class="inquiry-btn">Enquiry</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation (Same as index.html) -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="products.html" class="active"><i class="fas fa-boxes"></i> Products</a></li>
+                <li class="dropdown">
+                    <a href="#"><i class="fas fa-th-large"></i> Categories <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#" data-category="tools"><i class="fas fa-tools"></i> Power Tools</a>
+                        <a href="#" data-category="electrical"><i class="fas fa-bolt"></i> Electrical</a>
+                        <a href="#" data-category="hardware"><i class="fas fa-cogs"></i> Hardware</a>
+                        <a href="#" data-category="safety"><i class="fas fa-shield-alt"></i> Safety Gear</a>
+                        <a href="#" data-category="machinery"><i class="fas fa-wrench"></i> Machinery</a>
+                        <a href="#" data-category="paints"><i class="fas fa-paint-roller"></i> Paints</a>
+                    </div>
+                </li>
+                <li><a href="#"><i class="fas fa-building"></i> Bulk Orders</a></li>
+                <li><a href="#"><i class="fas fa-tags"></i> Offers</a></li>
+                <li><a href="admin.html" class="admin-link"><i class="fas fa-lock"></i> Admin</a></li>
+            </ul>
+            
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Products Page Content -->
+    <section class="products-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>Our Products</h1>
+                <p>Browse our extensive collection of industrial products</p>
+            </div>
+            
+            <div class="products-container">
+                <!-- Filters Sidebar -->
+                <aside class="filters-sidebar">
+                    <div class="filter-section">
+                        <h3><i class="fas fa-filter"></i> Filters</h3>
+                        
+                        <div class="filter-group">
+                            <h4>Categories</h4>
+                            <div class="filter-options">
+                                <label class="checkbox">
+                                    <input type="checkbox" value="tools" checked>
+                                    <span>Power Tools</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" value="electrical" checked>
+                                    <span>Electrical</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" value="hardware" checked>
+                                    <span>Hardware</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" value="safety" checked>
+                                    <span>Safety Gear</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" value="machinery" checked>
+                                    <span>Machinery</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" value="paints" checked>
+                                    <span>Paints</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <h4>Price Range</h4>
+                            <div class="price-range">
+                                <input type="range" min="0" max="50000" value="50000" class="slider" id="priceRange">
+                                <div class="price-values">
+                                    <span>₹0</span>
+                                    <span id="priceRangeValue">₹50,000</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <h4>Brand</h4>
+                            <div class="filter-options">
+                                <label class="checkbox">
+                                    <input type="checkbox" value="bosch">
+                                    <span>Bosch</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" value="hilti">
+                                    <span>Hilti</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" value="havells">
+                                    <span>Havells</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" value="anchor">
+                                    <span>Anchor</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" value="asian">
+                                    <span>Asian Paints</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <h4>Stock Availability</h4>
+                            <div class="filter-options">
+                                <label class="radio">
+                                    <input type="radio" name="stock" value="all" checked>
+                                    <span>All Products</span>
+                                </label>
+                                <label class="radio">
+                                    <input type="radio" name="stock" value="instock">
+                                    <span>In Stock Only</span>
+                                </label>
+                                <label class="radio">
+                                    <input type="radio" name="stock" value="lowstock">
+                                    <span>Low Stock</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary" id="applyFilters">Apply Filters</button>
+                        <button class="btn btn-secondary" id="resetFilters">Reset Filters</button>
+                    </div>
+                    
+                    <div class="quick-stats">
+                        <h4><i class="fas fa-chart-bar"></i> Inventory Status</h4>
+                        <div class="stat-item">
+                            <span>Total Products:</span>
+                            <strong id="totalProducts">0</strong>
+                        </div>
+                        <div class="stat-item">
+                            <span>In Stock:</span>
+                            <strong id="inStock">0</strong>
+                        </div>
+                        <div class="stat-item">
+                            <span>Low Stock:</span>
+                            <strong id="lowStock">0</strong>
+                        </div>
+                        <div class="stat-item">
+                            <span>Out of Stock:</span>
+                            <strong id="outOfStock">0</strong>
+                        </div>
+                    </div>
+                </aside>
+                
+                <!-- Products Grid -->
+                <main class="products-main">
+                    <div class="products-toolbar">
+                        <div class="sort-options">
+                            <label>Sort By:</label>
+                            <select id="sortSelect">
+                                <option value="name_asc">Name (A-Z)</option>
+                                <option value="name_desc">Name (Z-A)</option>
+                                <option value="price_asc">Price (Low to High)</option>
+                                <option value="price_desc">Price (High to Low)</option>
+                                <option value="stock_desc">Stock (High to Low)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="view-options">
+                            <span class="view-btn active" data-view="grid"><i class="fas fa-th"></i></span>
+                            <span class="view-btn" data-view="list"><i class="fas fa-list"></i></span>
+                        </div>
+                    </div>
+                    
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Products will be loaded by JavaScript -->
+                    </div>
+                    
+                    <div class="pagination" id="pagination">
+                        <!-- Pagination will be generated by JavaScript -->
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as index.html) -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <i class="fas fa-industry"></i>
+                        <h3>Madhu <span>Enterprises</span></h3>
+                    </div>
+                    <p>Your trusted partner for industrial supplies and hardware solutions since 2005.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Bulk Orders</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#">Industrial Supplies</a></li>
+                        <li><a href="#">Hardware Distribution</a></li>
+                        <li><a href="#">Electrical Components</a></li>
+                        <li><a href="#">Safety Equipment</a></li>
+                        <li><a href="#">Technical Consultancy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Industrial Area, Mumbai</p>
+                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                        <p><i class="fas fa-envelope"></i> info@madhuenterprises.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 7:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Madhu Enterprises. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quick Cart Preview -->
+    <div class="quick-cart" id="quickCart">
+        <div class="quick-cart-header">
+            <h4><i class="fas fa-shopping-cart"></i> Your Cart</h4>
+            <span class="close-cart"><i class="fas fa-times"></i></span>
+        </div>
+        <div class="quick-cart-body" id="quickCartItems">
+            <!-- Cart items will be loaded here -->
+        </div>
+        <div class="quick-cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="quickCartTotal">₹0.00</span>
+            </div>
+            <a href="cart.html" class="btn btn-small">View Cart</a>
+            <a href="#" class="btn btn-small btn-primary" id="quickCheckout">Checkout</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

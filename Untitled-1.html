@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madhu Enterprises - Industrial Supplies & Hardware</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo-area">
+                <div class="logo">
+                    <i class="fas fa-industry"></i>
+                    <h1>Madhu <span>Enterprises</span></h1>
+                </div>
+                <p class="tagline">Industrial Supplies & Hardware Solutions</p>
+            </div>
+            
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="Search products..." id="searchInput">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="user-actions">
+                    <a href="dashboard.html" class="user-icon" title="Dashboard">
+                        <i class="fas fa-user"></i>
+                        <span class="badge" id="userBadge">0</span>
+                    </a>
+                    <a href="cart.html" class="cart-icon" title="Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" id="cartCount">0</span>
+                    </a>
+                    <a href="#inquiry" class="inquiry-btn">Enquiry</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="products.html"><i class="fas fa-boxes"></i> Products</a></li>
+                <li class="dropdown">
+                    <a href="#"><i class="fas fa-th-large"></i> Categories <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="#"><i class="fas fa-tools"></i> Power Tools</a>
+                        <a href="#"><i class="fas fa-bolt"></i> Electrical</a>
+                        <a href="#"><i class="fas fa-cogs"></i> Hardware</a>
+                        <a href="#"><i class="fas fa-shield-alt"></i> Safety Gear</a>
+                        <a href="#"><i class="fas fa-wrench"></i> Machinery</a>
+                        <a href="#"><i class="fas fa-paint-roller"></i> Paints</a>
+                    </div>
+                </li>
+                <li><a href="#"><i class="fas fa-building"></i> Bulk Orders</a></li>
+                <li><a href="#"><i class="fas fa-tags"></i> Offers</a></li>
+                <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="#"><i class="fas fa-phone-alt"></i> Contact</a></li>
+                <li><a href="admin.html" class="admin-link"><i class="fas fa-lock"></i> Admin</a></li>
+            </ul>
+            
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Industrial Supplies & Hardware Solutions</h2>
+                <p class="subtitle">Trusted by 500+ Industries Since 2005</p>
+                <p class="description">Quality products, competitive pricing, and reliable delivery for all your industrial needs.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>18+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat">
+                        <h3>2000+</h3>
+                        <p>Products</p>
+                    </div>
+                    <div class="stat">
+                        <h3>500+</h3>
+                        <p>Happy Clients</p>
+                    </div>
+                    <div class="stat">
+                        <h3>24/7</h3>
+                        <p>Support</p>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="products.html" class="btn btn-primary">Shop Now <i class="fas fa-arrow-right"></i></a>
+                    <a href="#inquiry" class="btn btn-secondary">Request Quote</a>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Industrial Tools">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shipping-fast"></i>
+                </div>
+                <h3>Free Shipping</h3>
+                <p>On orders above ₹5000</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Quality Guarantee</h3>
+                <p>All products are certified</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>24/7 Support</h3>
+                <p>Technical assistance available</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-undo-alt"></i>
+                </div>
+                <h3>Easy Returns</h3>
+                <p>7-day return policy</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Products</h2>
+                <a href="products.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="products-grid" id="featuredProducts">
+                <!-- Products will be loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <h2>Shop By Category</h2>
+            
+            <div class="categories-grid">
+                <div class="category-card" data-category="tools">
+                    <div class="category-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Power Tools</h3>
+                    <p>Drills, Grinders, Saws</p>
+                    <span class="count">150+ Products</span>
+                </div>
+                
+                <div class="category-card" data-category="electrical">
+                    <div class="category-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Electrical</h3>
+                    <p>Wires, Switches, Panels</p>
+                    <span class="count">300+ Products</span>
+                </div>
+                
+                <div class="category-card" data-category="hardware">
+                    <div class="category-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Hardware</h3>
+                    <p>Fasteners, Fittings, Tools</p>
+                    <span class="count">500+ Products</span>
+                </div>
+                
+                <div class="category-card" data-category="safety">
+                    <div class="category-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Safety Gear</h3>
+                    <p>Helmets, Gloves, Masks</p>
+                    <span class="count">120+ Products</span>
+                </div>
+                
+                <div class="category-card" data-category="paints">
+                    <div class="category-icon">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <h3>Paints & Coatings</h3>
+                    <p>Industrial Paints, Primers</p>
+                    <span class="count">80+ Products</span>
+                </div>
+                
+                <div class="category-card" data-category="machinery">
+                    <div class="category-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3>Machinery</h3>
+                    <p>Equipment & Spare Parts</p>
+                    <span class="count">200+ Products</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inquiry Form -->
+    <section class="inquiry" id="inquiry">
+        <div class="container">
+            <div class="inquiry-content">
+                <h2>Quick Enquiry</h2>
+                <p>Need bulk order quote or product information? Send us your enquiry.</p>
+                
+                <form id="enquiryForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="inqName" placeholder="Your Name *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="inqPhone" placeholder="Phone Number *" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="inqEmail" placeholder="Email Address *" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="inqSubject" placeholder="Subject *" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="inqMessage" rows="4" placeholder="Your Enquiry *" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="inqProduct">Product Interested In (Optional)</label>
+                        <input type="text" id="inqProduct" placeholder="Product name or code">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="inqQuantity">Quantity Required</label>
+                        <input type="number" id="inqQuantity" min="1" value="1">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Submit Enquiry
+                    </button>
+                </form>
+            </div>
+            
+            <div class="inquiry-info">
+                <h3>Why Choose Us?</h3>
+                
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Best Prices</h4>
+                        <p>Competitive pricing for bulk orders</p>
+                    </div>
+                </div>
+                
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Quality Assurance</h4>
+                        <p>All products are quality tested</p>
+                    </div>
+                </div>
+                
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Fast Delivery</h4>
+                        <p>Same day dispatch for stock items</p>
+                    </div>
+                </div>
+                
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>Technical Support</h4>
+                        <p>Expert advice for product selection</p>
+                    </div>
+                </div>
+                
+                <div class="contact-details">
+                    <h4>Contact Information</h4>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-envelope"></i> sales@madhuenterprises.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Industrial Area, Mumbai - 400001</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <i class="fas fa-industry"></i>
+                        <h3>Madhu <span>Enterprises</span></h3>
+                    </div>
+                    <p>Your trusted partner for industrial supplies and hardware solutions since 2005.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Bulk Orders</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#">Industrial Supplies</a></li>
+                        <li><a href="#">Hardware Distribution</a></li>
+                        <li><a href="#">Electrical Components</a></li>
+                        <li><a href="#">Safety Equipment</a></li>
+                        <li><a href="#">Machinery Parts</a></li>
+                        <li><a href="#">Technical Consultancy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Industrial Area, Phase II, Mumbai</p>
+                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                        <p><i class="fas fa-envelope"></i> info@madhuenterprises.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 7:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="payment-methods">
+                    <span>Accepted Payment Methods:</span>
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fas fa-university"></i>
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                
+                <p>&copy; 2024 Madhu Enterprises. All rights reserved. | GST No: 27ABCDE1234F1Z5</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quick Cart Preview (Floating) -->
+    <div class="quick-cart" id="quickCart">
+        <div class="quick-cart-header">
+            <h4><i class="fas fa-shopping-cart"></i> Your Cart</h4>
+            <span class="close-cart"><i class="fas fa-times"></i></span>
+        </div>
+        <div class="quick-cart-body" id="quickCartItems">
+            <!-- Cart items will be loaded here -->
+        </div>
+        <div class="quick-cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="quickCartTotal">₹0.00</span>
+            </div>
+            <a href="cart.html" class="btn btn-small">View Cart</a>
+            <a href="#" class="btn btn-small btn-primary" id="quickCheckout">Checkout</a>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle"></i>
+            <span class="toast-message">Product added to cart!</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

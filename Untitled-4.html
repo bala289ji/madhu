@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Madhu Enterprises</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="container">
+            <div class="admin-logo">
+                <i class="fas fa-industry"></i>
+                <div>
+                    <h1>Madhu Enterprises</h1>
+                    <p>Admin Panel</p>
+                </div>
+            </div>
+            
+            <div class="admin-user">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <div>
+                        <strong>Admin User</strong>
+                        <span>Super Administrator</span>
+                    </div>
+                </div>
+                <a href="index.html" class="btn btn-small btn-secondary">
+                    <i class="fas fa-store"></i> View Store
+                </a>
+                <button class="btn btn-small" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Admin Container -->
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <nav class="admin-nav">
+                <ul>
+                    <li>
+                        <a href="#dashboard" class="active" data-tab="dashboard">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#products" data-tab="products">
+                            <i class="fas fa-boxes"></i>
+                            <span>Products</span>
+                            <span class="badge" id="productCount">0</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#inventory" data-tab="inventory">
+                            <i class="fas fa-warehouse"></i>
+                            <span>Inventory</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#orders" data-tab="orders">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Orders</span>
+                            <span class="badge" id="orderCount">0</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#invoices" data-tab="invoices">
+                            <i class="fas fa-file-invoice"></i>
+                            <span>Invoices</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#enquiries" data-tab="enquiries">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Enquiries</span>
+                            <span class="badge" id="enquiryCount">0</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#customers" data-tab="customers">
+                            <i class="fas fa-users"></i>
+                            <span>Customers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#reports" data-tab="reports">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#settings" data-tab="settings">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="admin-status">
+                <h4>System Status</h4>
+                <div class="status-item">
+                    <span>Last Login:</span>
+                    <strong id="lastLogin">Today, 09:30 AM</strong>
+                </div>
+                <div class="status-item">
+                    <span>Server:</span>
+                    <strong class="status-online">Online</strong>
+                </div>
+                <div class="status-item">
+                    <span>Database:</span>
+                    <strong class="status-online">Connected</strong>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Dashboard Tab -->
+            <div class="admin-tab active" id="dashboard">
+                <div class="tab-header">
+                    <h2><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
+                    <div class="date-range">
+                        <select id="dashboardRange">
+                            <option value="today">Today</option>
+                            <option value="week" selected>This Week</option>
+                            <option value="month">This Month</option>
+                            <option value="quarter">This Quarter</option>
+                            <option value="year">This Year</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon revenue">
+                            <i class="fas fa-rupee-sign"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="totalRevenue">₹0.00</h3>
+                            <p>Total Revenue</p>
+                            <span class="stat-change positive">+12.5%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon orders">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="totalOrders">0</h3>
+                            <p>Total Orders</p>
+                            <span class="stat-change positive">+8.2%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon products">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="totalProducts">0</h3>
+                            <p>Total Products</p>
+                            <span class="stat-change">+5</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon customers">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="totalCustomers">0</h3>
+                            <p>Total Customers</p>
+                            <span class="stat-change positive">+15.3%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Charts -->
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3>Revenue Trend</h3>
+                        <div class="chart-container">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <h3>Top Selling Products</h3>
+                        <div class="chart-container">
+                            <canvas id="salesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Orders -->
+                <div class="table-card">
+                    <div class="table-header">
+                        <h3>Recent Orders</h3>
+                        <a href="#orders" class="btn btn-small" data-tab="orders">View All</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentOrders">
+                                <!-- Recent orders will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Low Stock Alert -->
+                <div class="table-card">
+                    <div class="table-header">
+                        <h3>Low Stock Alert</h3>
+                        <a href="#inventory" class="btn btn-small btn-warning" data-tab="inventory">
+                            <i class="fas fa-exclamation-triangle"></i> Manage
+                        </a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>SKU</th>
+                                    <th>Current Stock</th>
+                                    <th>Min. Stock</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="lowStockItems">
+                                <!-- Low stock items will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Products Tab -->
+            <div class="admin-tab" id="products">
+                <div class="tab-header">
+                    <h2><i class="fas fa-boxes"></i> Product Management</h2>
+                    <button class="btn btn-primary" id="addProductBtn">
+                        <i class="fas fa-plus"></i> Add New Product
+                    </button>
+                </div>
+                
+                <!-- Product Filters -->
+                <div class="filters-bar">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search products..." id="productSearch">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <select id="productCategoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="tools">Power Tools</option>
+                            <option value="electrical">Electrical</option>
+                            <option value="hardware">Hardware</option>
+                            <option value="safety">Safety Gear</option>
+                            <option value="machinery">Machinery</option>
+                            <option value="paints">Paints</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <select id="productStatusFilter">
+                            <option value="">All Status</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="outofstock">Out of Stock</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Products Table -->
+                <div class="table-card">
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Product</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsTable">
+                                <!-- Products will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-footer">
+                        <div class="pagination" id="productsPagination">
+                            <!-- Pagination will be generated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Inventory Tab -->
+            <div class="admin-tab" id="inventory">
+                <div class="tab-header">
+                    <h2><i class="fas fa-warehouse"></i> Inventory Management</h2>
+                    <button class="btn btn-primary" id="bulkUpdateBtn">
+                        <i class="fas fa-upload"></i> Bulk Update
+                    </button>
+                </div>
+                
+                <!-- Inventory Summary -->
+                <div class="inventory-summary">
+                    <div class="summary-card">
+                        <h4>Total Stock Value</h4>
+                        <h3 id="totalStockValue">₹0.00</h3>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Total Items</h4>
+                        <h3 id="totalInventoryItems">0</h3>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Low Stock Items</h4>
+                        <h3 id="lowStockCount">0</h3>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Out of Stock</h4>
+                        <h3 id="outOfStockCount">0</h3>
+                    </div>
+                </div>
+                
+                <!-- Inventory Table -->
+                <div class="table-card">
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>SKU</th>
+                                    <th>Product Name</th>
+                                    <th>Category</th>
+                                    <th>Current Stock</th>
+                                    <th>Min. Stock</th>
+                                    <th>Unit Price</th>
+                                    <th>Stock Value</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inventoryTable">
+                                <!-- Inventory items will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Orders Tab -->
+            <div class="admin-tab" id="orders">
+                <div class="tab-header">
+                    <h2><i class="fas fa-shopping-bag"></i> Order Management</h2>
+                    <div class="order-filters">
+                        <select id="orderStatusFilter">
+                            <option value="">All Orders</option>
+                            <option value="pending">Pending</option>
+                            <option value="processing">Processing</option>
+                            <option value="shipped">Shipped</option>
+                            <option value="delivered">Delivered</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Orders Table -->
+                <div class="table-card">
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Date</th>
+                                    <th>Items</th>
+                                    <th>Amount</th>
+                                    <th>Payment</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTable">
+                                <!-- Orders will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Invoices Tab -->
+            <div class="admin-tab" id="invoices">
+                <div class="tab-header">
+                    <h2><i class="fas fa-file-invoice"></i> Invoice Management</h2>
+                    <button class="btn btn-primary" id="createInvoiceBtn">
+                        <i class="fas fa-plus"></i> Create Invoice
+                    </button>
+                </div>
+                
+                <!-- Invoices Table -->
+                <div class="table-card">
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Invoice No.</th>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="invoicesTable">
+                                <!-- Invoices will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Enquiries Tab -->
+            <div class="admin-tab" id="enquiries">
+                <div class="tab-header">
+                    <h2><i class="fas fa-question-circle"></i> Customer Enquiries</h2>
+                    <div class="enquiry-filters">
+                        <select id="enquiryStatusFilter">
+                            <option value="">All Enquiries</option>
+                            <option value="new">New</option>
+                            <option value="pending">Pending</option>
+                            <option value="responded">Responded</option>
+                            <option value="closed">Closed</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Enquiries Table -->
+                <div class="table-card">
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Contact</th>
+                                    <th>Subject</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="enquiriesTable">
+                                <!-- Enquiries will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-box"></i> Add New Product</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="productForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Product Name *</label>
+                            <input type="text" id="productName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>SKU Code *</label>
+                            <input type="text" id="productSKU" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Category *</label>
+                            <select id="productCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="tools">Power Tools</option>
+                                <option value="electrical">Electrical</option>
+                                <option value="hardware">Hardware</option>
+                                <option value="safety">Safety Gear</option>
+                                <option value="machinery">Machinery</option>
+                                <option value="paints">Paints</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Brand</label>
+                            <input type="text" id="productBrand">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Purchase Price *</label>
+                            <input type="number" id="productCost" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Selling Price *</label>
+                            <input type="number" id="productPrice" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Tax Rate (%)</label>
+                            <input type="number" id="productTax" value="18" step="0.01">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Initial Stock *</label>
+                            <input type="number" id="productStock" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Min. Stock Level</label>
+                            <input type="number" id="productMinStock" value="10">
+                        </div>
+                        <div class="form-group">
+                            <label>Unit</label>
+                            <select id="productUnit">
+                                <option value="pcs">Pieces</option>
+                                <option value="kg">Kilograms</option>
+                                <option value="meter">Meters</option>
+                                <option value="litre">Litres</option>
+                                <option value="set">Set</option>
+                                <option value="box">Box</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="productDescription" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Product Specifications (JSON)</label>
+                        <textarea id="productSpecs" rows="4" placeholder='{"weight": "2kg", "dimensions": "10x5x3cm", "color": "Red"}'></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Product Image URL</label>
+                        <input type="text" id="productImage" placeholder="https://example.com/image.jpg">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Status</label>
+                        <div class="radio-group">
+                            <label class="radio">
+                                <input type="radio" name="productStatus" value="active" checked>
+                                <span>Active</span>
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="productStatus" value="inactive">
+                                <span>Inactive</span>
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelProduct">Cancel</button>
+                <button class="btn btn-primary" id="saveProduct">Save Product</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Invoice Modal -->
+    <div class="modal" id="invoiceModal">
+        <div class="modal-content wide-modal">
+            <div class="modal-header">
+                <h2><i class="fas fa-file-invoice"></i> Generate Invoice</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="invoice-preview" id="invoicePreview">
+                    <!-- Invoice will be generated here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="printInvoice">
+                    <i class="fas fa-print"></i> Print
+                </button>
+                <button class="btn btn-primary" id="downloadInvoice">
+                    <i class="fas fa-download"></i> Download PDF
+                </button>
+                <button class="btn btn-success" id="sendInvoice">
+                    <i class="fas fa-paper-plane"></i> Send to Customer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
